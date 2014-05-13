@@ -428,7 +428,8 @@ class Pilau_GA_Measurement_Protocol {
 	 *
 	 * @since	0.1
 	 * @link	https://developers.google.com/analytics/devguides/collection/protocol/v1/devguide
-	 * @param	array	$data
+	 * @param	string	$method		'pageview' | 'ecommerce' | 'event'
+	 * @param	array	$info		Check each method below, and the above dev guide, for details of what to include here
 	 * @return	mixed
 	 */
 	public function build_hit( $method = null, $info = null ) {
