@@ -85,7 +85,7 @@ class Pilau_GA_Measurement_Protocol {
 		//add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_styles' ) );
 		//add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_scripts' ) );
 
-		// Register / load public-facing scripts and styles
+		// Load public-facing scripts and styles
 		//add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_styles' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 
@@ -207,7 +207,9 @@ class Pilau_GA_Measurement_Protocol {
 
 			wp_enqueue_script( $this->plugin_slug . '-plugin-script', plugins_url( 'js/public.js', __FILE__ ), array( 'jquery' ), $this->version );
 			// Use localize to pass settings
-			wp_localize_script( $this->plugin_slug . '-plugin-script', 'gamp', array( 'track_downloads' => explode( ',', $this->settings['track-downloads'] ) ) );
+			wp_localize_script( $this->plugin_slug . '-plugin-script', 'gamp', array(
+				'track_downloads'	=> explode( ',', $this->settings['track-downloads'] )
+			));
 
 		}
 
