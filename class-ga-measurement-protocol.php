@@ -81,11 +81,11 @@ class Pilau_GA_Measurement_Protocol {
 		add_action( 'admin_menu', array( $this, 'add_plugin_admin_menu' ) );
 		add_action( 'admin_init', array( $this, 'process_plugin_admin_settings' ) );
 
-		// Load admin style sheet and JavaScript.
+		// Load admin styles and scripts
 		//add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_styles' ) );
 		//add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_scripts' ) );
 
-		// Load public-facing style sheet and JavaScript.
+		// Register / load public-facing scripts and styles
 		//add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_styles' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 
@@ -202,9 +202,15 @@ class Pilau_GA_Measurement_Protocol {
 	 * @since    0.1
 	 */
 	public function enqueue_scripts() {
+
 		if ( $this->settings['insert-tracking-code'] ) {
+
 			wp_enqueue_script( $this->plugin_slug . '-plugin-script', plugins_url( 'js/public.js', __FILE__ ), array( 'jquery' ), $this->version );
+			// Use localize to pass settings
+			wp_localize_script( $this->plugin_slug . '-plugin-script', 'gamp', array( 'track_downloads' => explode( ',', $this->settings['track-downloads'] ) ) );
+
 		}
+
 	}
 
 	/**
@@ -242,14 +248,14 @@ class Pilau_GA_Measurement_Protocol {
 
 		$settings = get_option( $this->plugin_slug . '_settings' );
 
-		if ( ! $settings ) {
-			// Defaults
-			$settings = array(
-				'ga-id'						=> '',
-				'insert-tracking-code'		=> '',
-				'exclude-user-capability'	=> ''
-			);
-		}
+		// Defaults
+		$defaults = array(
+			'ga-id'						=> '',
+			'insert-tracking-code'		=> '',
+			'exclude-user-capability'	=> '',
+			'track-downloads'			=> 'pdf,doc,docx,zip'
+		);
+		$settings = array_merge( $defaults, $settings );
 
 		return $settings;
 	}
@@ -277,7 +283,8 @@ class Pilau_GA_Measurement_Protocol {
 			$settings = array();
 			$settings['ga-id'] = preg_replace( '/[^UA\-0-9]/', '', $_POST['ga-id'] );
 			$settings['insert-tracking-code'] = isset( $_POST['insert-tracking-code'] ) ? 1 : 0;
-			$settings['exclude-user-capability'] = $_POST['exclude-user-capability'];
+			$settings['exclude-user-capability'] = preg_replace( '/[^a-z_]/', '', $_POST['exclude-user-capability'] );
+			$settings['track-downloads'] = preg_replace( '/[^a-zA-Z0-9,]/', '', $_POST['track-downloads'] );
 
 			// Save as option
 			$this->set_settings( $settings );

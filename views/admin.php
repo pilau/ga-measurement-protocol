@@ -43,6 +43,13 @@
 						<p class="description"><?php _e( 'Leave blank to track all users', $this->plugin_slug ); ?></p>
 					</td>
 				</tr>
+				<tr valign="top">
+					<th scope="row"><label for="<?php echo $this->plugin_slug . '-track-downloads'; ?>"><?php _e( 'Track downloads' ); ?></label></th>
+					<td>
+						<input type="text" name="track-downloads" id="<?php echo $this->plugin_slug . '-track-downloads'; ?>" value="<?php esc_attr_e( $this->settings['track-downloads'] ); ?>" class="regular-text" placeholder="e.g. pdf,doc,docx,zip">
+						<p class="description"><?php _e( 'Enter file types, comma-separated; leave blank to not track downloads', $this->plugin_slug ); ?></p>
+					</td>
+				</tr>
 			</tbody>
 		</table>
 
