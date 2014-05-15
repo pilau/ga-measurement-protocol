@@ -203,7 +203,7 @@ class Pilau_GA_Measurement_Protocol {
 	 */
 	public function enqueue_scripts() {
 
-		if ( $this->settings['insert-tracking-code'] ) {
+		if ( $this->settings['insert-tracking-code'] && $this->analytics_applicable() ) {
 
 			wp_enqueue_script( $this->plugin_slug . '-plugin-script', plugins_url( 'js/public.js', __FILE__ ), array( 'jquery' ), $this->version );
 			// Use localize to pass settings
