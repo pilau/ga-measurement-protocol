@@ -23,7 +23,7 @@ class Pilau_GA_Measurement_Protocol {
 	 *
 	 * @var     string
 	 */
-	protected $version = '0.1';
+	protected $version = '0.1.1';
 
 	/**
 	 * Unique identifier for your plugin.
@@ -144,7 +144,7 @@ class Pilau_GA_Measurement_Protocol {
 		$locale = apply_filters( 'plugin_locale', get_locale(), $domain );
 
 		load_textdomain( $domain, WP_LANG_DIR . '/' . $domain . '/' . $domain . '-' . $locale . '.mo' );
-		load_plugin_textdomain( $domain, FALSE, dirname( plugin_basename( __FILE__ ) ) . '/lang/' );
+		load_plugin_textdomain( $domain, FALSE, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
 	}
 
 	/**

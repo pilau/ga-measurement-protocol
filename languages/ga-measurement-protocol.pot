@@ -1,0 +1,50 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Pilau Google Analytics Measurement Protocol\n"
+"POT-Creation-Date: 2014-06-08 21:40-0000\n"
+"PO-Revision-Date: 2014-06-08 21:40-0000\n"
+"Last-Translator: Steve Taylor <steve@sltaylor.co.uk>\n"
+"Language-Team: Pilau <pilaubase@gmail.com>\n"
+"Language: en_GB\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.5\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+#: ../class-ga-measurement-protocol.php:226
+#: ../class-ga-measurement-protocol.php:227
+msgid "Google Analytics Measurement Protocol"
+msgstr ""
+
+#: ../views/admin.php:22
+msgid "Settings updated successfully."
+msgstr ""
+
+#: ../views/admin.php:32
+msgid "Google Analytics ID"
+msgstr ""
+
+#: ../views/admin.php:36
+msgid "Insert JavaScript tracking code?"
+msgstr ""
+
+#: ../views/admin.php:40
+msgid "Exclude users with this capability"
+msgstr ""
+
+#: ../views/admin.php:43
+msgid "Leave blank to track all users"
+msgstr ""
+
+#: ../views/admin.php:47
+msgid "Track downloads"
+msgstr ""
+
+#: ../views/admin.php:50
+msgid "Enter file types, comma-separated; leave blank to not track downloads"
+msgstr ""
