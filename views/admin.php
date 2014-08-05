@@ -50,6 +50,13 @@
 						<p class="description"><?php _e( 'Enter file types, comma-separated; leave blank to not track downloads', $this->plugin_slug ); ?></p>
 					</td>
 				</tr>
+				<tr valign="top">
+					<th scope="row"><label for="<?php echo $this->plugin_slug . '-enhanced-link-attribution'; ?>"><?php _e( 'Enhanced link attribution?' ); ?></label></th>
+					<td>
+						<input type="checkbox" name="enhanced-link-attribution" id="<?php echo $this->plugin_slug . '-enhanced-link-attribution'; ?>" value="1"<?php checked( $this->settings['enhanced-link-attribution'] ); ?>>
+						<p class="description"><a href="https://support.google.com/analytics/answer/2558867" target="_blank"><?php _e( 'Details on enhanced link attribution', $this->plugin_slug ); ?></a></p>
+					</td>
+				</tr>
 			</tbody>
 		</table>
 

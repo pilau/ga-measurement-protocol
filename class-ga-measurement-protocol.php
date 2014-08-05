@@ -255,7 +255,8 @@ class Pilau_GA_Measurement_Protocol {
 			'ga-id'						=> '',
 			'insert-tracking-code'		=> '',
 			'exclude-user-capability'	=> '',
-			'track-downloads'			=> 'pdf,doc,docx,zip'
+			'enhanced-link-attribution'	=> '',
+			'track-downloads'			=> 'pdf,doc,docx,zip',
 		);
 		$settings = array_merge( $defaults, $settings );
 
@@ -287,6 +288,7 @@ class Pilau_GA_Measurement_Protocol {
 			$settings['insert-tracking-code'] = isset( $_POST['insert-tracking-code'] ) ? 1 : 0;
 			$settings['exclude-user-capability'] = preg_replace( '/[^a-z_]/', '', $_POST['exclude-user-capability'] );
 			$settings['track-downloads'] = preg_replace( '/[^a-zA-Z0-9,]/', '', $_POST['track-downloads'] );
+			$settings['enhanced-link-attribution'] = isset( $_POST['enhanced-link-attribution'] ) ? 1 : 0;
 
 			// Save as option
 			$this->set_settings( $settings );
@@ -344,6 +346,9 @@ class Pilau_GA_Measurement_Protocol {
 					m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 				})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 				ga( 'create', '<?php echo $this->settings['ga-id']; ?>', '<?php echo $domain; ?>' );
+				<?php if ( $this->settings['enhanced-link-attribution'] ) { ?>
+					ga( 'require', 'linkid', 'linkid.js' );
+				<?php } ?>
 				ga( 'send', 'pageview' );
 			</script>
 

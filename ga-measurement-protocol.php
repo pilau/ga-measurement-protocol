@@ -14,7 +14,7 @@
  * @wordpress-plugin
  * Plugin Name:			Pilau Google Analytics Measurement Protocol
  * Description:			Tools for interacting with the Google Analytics Measurement Protocol.
- * Version:				0.1
+ * Version:				0.1.1
  * Author:				Steve Taylor
  * Text Domain:			ga-measurement-protocol-locale
  * License:				GPL-2.0+
