@@ -57,6 +57,13 @@
 						<p class="description"><a href="https://support.google.com/analytics/answer/2558867" target="_blank"><?php _e( 'Details on enhanced link attribution', $this->plugin_slug ); ?></a></p>
 					</td>
 				</tr>
+				<tr valign="top">
+					<th scope="row"><label for="<?php echo $this->plugin_slug . '-allow-anchor-parameters'; ?>"><?php _e( 'Allow anchor parameters?' ); ?></label></th>
+					<td>
+						<input type="checkbox" name="allow-anchor-parameters" id="<?php echo $this->plugin_slug . '-allow-anchor-parameters'; ?>" value="1"<?php checked( $this->settings['allow-anchor-parameters'] ); ?>>
+						<p class="description"><a href="https://developers.google.com/analytics/devguides/collection/analyticsjs/field-reference#allowAnchor" target="_blank"><?php _e( 'Details on anchor parameters', $this->plugin_slug ); ?></a></p>
+					</td>
+				</tr>
 			</tbody>
 		</table>
 
