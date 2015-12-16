@@ -249,6 +249,9 @@ class Pilau_GA_Measurement_Protocol {
 	public function get_settings() {
 
 		$settings = get_option( $this->plugin_slug . '_settings' );
+		if ( ! is_array( $settings ) ) {
+			$settings = array();
+		}
 
 		// Defaults
 		$defaults = array(
