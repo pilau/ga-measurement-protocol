@@ -23,7 +23,7 @@ class Pilau_GA_Measurement_Protocol {
 	 *
 	 * @var     string
 	 */
-	protected $version = '0.1.1';
+	protected $version = '0.1.2';
 
 	/**
 	 * Unique identifier for your plugin.
